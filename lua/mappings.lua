@@ -19,6 +19,10 @@ map("n", "<leader>tT", function()
   require("base46").toggle_transparency()
 end, { desc = "Toggle transparency" })
 
+map("n", "<leader>ca", "<cmd> :lua vim.lsp.buf.code_action() <cr>", { desc = "lsp code action" })
+
+map("n", "cpp", "<cmd> :terminal g++ -std=c++17 % -o %:r && ./%:r<cr>", { desc = "run cpp code" })
+map("n", "cp", "<cmd> :terminal ./%:r<cr>", { desc = "output of cpp code" })
 ------------------------------------------  Nav------------------------------------------
 
 map("n", "<C-d>", "<C-d>zz")

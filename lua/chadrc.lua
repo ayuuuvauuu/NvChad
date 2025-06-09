@@ -18,13 +18,12 @@ M.base46 = {
 }
 
 M.ui = {
-
   cmp = {
     icons = false,
     lspkind_text = true,
-    style = "flat_dark",         -- default/flat_light/flat_dark/atom/atom_colored
+    style = "default",         -- default/flat_light/flat_dark/atom/atom_colored
     border_color = "grey_fg",    -- only applicable for "default" style, use color names from base30 variables
-    selected_item_bg = "simple", -- colored / simple
+    selected_item_bg = "colored", -- colored / simple
   },
 
   statusline = {
@@ -33,14 +32,16 @@ M.ui = {
     -- round and block will work for minimal theme only
     separator_style = "default",
   },
+  lsp = {
+    -- show function signatures i.e args as you type
+    signature = {
+      disabled = false,
+      silent = true, -- silences 'no signature help available' message from appearing
+    },
+  },
 }
 
--- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
---}
+M.nvdash = { load_on_startup = true }
 
 return M
 

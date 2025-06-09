@@ -5,7 +5,25 @@ return {
     opts = require "configs.conform",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function()
+      return require "configs.treesitter"
+    end,
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+
+  {
+    -- snippet plugin
+    "L3MON4D3/LuaSnip",
+    config = function(_, opts)
+      require("luasnip").config.set_config(opts)
+      require "configs.luasnip"
+    end,
+  },
+
   {
     "neovim/nvim-lspconfig",
     config = function()
