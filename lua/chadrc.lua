@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "scaryforest",
+  theme = "tokyonight",
   transparency = false,
   lsp_semantic_tokens = true, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
@@ -14,7 +14,7 @@ M.base46 = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-  theme_toggle = { "scaryforest", "gruvbox_light" },
+  theme_toggle = { "tokyonight", "gruvbox_light" },
 }
 
 M.ui = {

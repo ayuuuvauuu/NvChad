@@ -3,6 +3,10 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map("n", "K", function()
+  vim.lsp.buf.hover { border = "rounded" }
+end, { buffer = bufnr, desc = "LSP: hover", silent = true })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
