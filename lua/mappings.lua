@@ -4,6 +4,10 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map("n", "K", function()
+  vim.diagnostic.open_float()
+end, {desc = " hover error show", silent = true })
+
+map("n", "<leader>k", function()
   vim.lsp.buf.hover { border = "rounded" }
 end, { buffer = bufnr, desc = "LSP: hover", silent = true })
 

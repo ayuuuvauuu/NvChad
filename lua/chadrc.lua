@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
   theme = "tokyonight",
-  transparency = false,
+  transparency = true,
   lsp_semantic_tokens = true, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
   hl_override = {
