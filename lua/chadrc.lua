@@ -7,14 +7,14 @@ local M = {}
 
 M.base46 = {
   theme = "tokyodark",
-  transparency = true,
+  transparency = false,
   lsp_semantic_tokens = true, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-  theme_toggle = { "tokyodark", "gruvbox_light" },
+  theme_toggle = { "tokyodark", "tokyodark" },
 }
 
 M.ui = {
