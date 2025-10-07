@@ -21,7 +21,7 @@ end, { desc = "buffer goto next" })
 map("n", "<S-H>", function()
   require("nvchad.tabufline").prev()
 end, { desc = "buffer goto prev" })
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map({ "n", "i", "v" }, "<C-s>", "<cmd> :update <cr>")
 
 map("n", "<leader>tT", function()
   require("base46").toggle_transparency()
