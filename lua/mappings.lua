@@ -27,6 +27,10 @@ map("n", "<leader>tT", function()
   require("base46").toggle_transparency()
 end, { desc = "Toggle transparency" })
 
+map({ "n" }, "<leader>H", function()
+  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+end, { desc = "terminal toggleable horizontal term" })
+
 map("n", "<leader>ca", "<cmd> :lua vim.lsp.buf.code_action() <cr>", { desc = "lsp code action" })
 
 map("n", "cpp", "<cmd> :terminal g++ -std=c++17 % -o %:r && ./%:r<cr>", { desc = "run cpp code" })
