@@ -6,15 +6,14 @@
 local M = {}
 
 M.base46 = {
-  theme = "monochrome",
-  transparency = false,
+  theme = "catppuccin",
+  transparency = true,
   lsp_semantic_tokens = true, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
-  theme_toggle = { "monochrome", "monochrome" },
 }
 
 M.ui = {

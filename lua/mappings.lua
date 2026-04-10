@@ -1,6 +1,16 @@
 require "nvchad.mappings"
--- add yours here
 
+local cmp = require('cmp')
+cmp.setup {
+  completion = {
+    autocomplete = false,
+  },
+  mapping = {
+    ['<C-Space>'] = cmp.mapping.complete()
+  }
+}
+
+-- add yours here
 local map = vim.keymap.set
 
 map("n", "K", function()
@@ -13,6 +23,8 @@ end, { buffer = bufnr, desc = "LSP: hover", silent = true })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+
+map("n", "<leader>x", "<cmd>:bd! <cr>",{ desc = "buffer close" })
 
 map("n", "<S-L>", function()
   require("nvchad.tabufline").next()
@@ -27,7 +39,7 @@ map("n", "<leader>tT", function()
   require("base46").toggle_transparency()
 end, { desc = "Toggle transparency" })
 
-map({ "n" }, "<leader>H", function()
+map({ "n" }, "<leader>v", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
 
@@ -35,12 +47,20 @@ map("n", "<leader>ca", "<cmd> :lua vim.lsp.buf.code_action() <cr>", { desc = "ls
 
 map("n", "cpp", "<cmd> :terminal g++ -std=c++17 % -o %:r && ./%:r<cr>", { desc = "run cpp code" })
 map("n", "cp", "<cmd> :terminal ./%:r<cr>", { desc = "output of cpp code" })
+
+
+map("t", "gf", [[<C-\><C-n><cmd>edit <cfile><cr>]], { desc = "open file under cursor from terminal" })
+map("n", "<leader>tt", "<cmd>topleft split | terminal<cr>", { desc = "open top split terminal" })
+
+--map("n", "<leader>rn", "<cmd>set nu!<CR>", { desc = "toggle line number" })
+map("n", "<leader>n", "<cmd>set rnu!| set nu!<CR>", { desc = "toggle relative number" })
 ------------------------------------------  Nav------------------------------------------
 
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 ------------------------------------------ Git ------------------------------------------
 
+map("n", "<leader>gc", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>gs", function()
   require("gitsigns").stage_hunk()
 end, { desc = "stage_hunk" })
@@ -77,12 +97,12 @@ map("n", "<leader>gh", function()
   require("gitsigns").preview_hunk()
 end, { desc = "preview changes in hunk" })
 
-map("n", "[c", function()
+map("n", "[C", function()
   require("gitsigns").prev_hunk()
 end, { desc = "jump to prev hunk" })
 
-map("n", "]c", function()
-  require("gitsigns").preview_hunk()
+map("n", "[c", function()
+  require("gitsigns").next_hunk()
 end, { desc = "jump to next hunk" })
 
 ------------------------------------------Harpoon------------------------------------------
