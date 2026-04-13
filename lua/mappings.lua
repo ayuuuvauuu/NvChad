@@ -1,14 +1,6 @@
 require "nvchad.mappings"
 
-local cmp = require('cmp')
-cmp.setup {
-  completion = {
-    autocomplete = false,
-  },
-  mapping = {
-    ['<C-Space>'] = cmp.mapping.complete()
-  }
-}
+
 
 -- add yours here
 local map = vim.keymap.set
@@ -26,6 +18,8 @@ map("i", "jk", "<ESC>")
 
 map("n", "<leader>x", "<cmd>:bd! <cr>",{ desc = "buffer close" })
 
+map("n", "<leader>b", "<cmd>tabnew %<CR>", { desc = "open new tab with current file" })
+map("n", "<leader>j", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
 map('n', '<S-H>', ':tabp<CR>', {desc = "go to previous tab"})
 map('n', '<S-J>', ':bp<CR>', {desc = "go to previous buffer"})
 map('n', '<S-K>', ':bn<CR>', {desc = "go to next buffer"})

@@ -3,7 +3,7 @@ dofile(vim.g.base46_cache .. "cmp")
 local cmp = require "cmp"
 
 local options = {
-  completion = { completeopt = "menu,menuone" },
+  completion = { completeopt = "menu,menuone", autocomplete = false },
 
   snippet = {
     expand = function(args)
@@ -48,7 +48,14 @@ local options = {
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer" },
+    {
+      name = "buffer",
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs() -- Get all open buffers
+        end,
+      },
+    },
     { name = "nvim_lua" },
     { name = "async_path" },
   },
