@@ -17,6 +17,14 @@ M.base46 = {
 }
 
 M.ui = {
+  tabufline = {
+    enabled = false,
+    lazyload = true,
+    -- order = { "treeOffset", "tabs", "buffers", "btns" },
+    order = { "treeOffset", "tabs", "btns" },
+    modules = nil,
+    bufwidth = 21,
+  },
   cmp = {
     icons = false,
     lspkind_text = true,
@@ -31,7 +39,7 @@ M.ui = {
     -- round and block will work for minimal theme only
     separator_style = "default",
   },
-  lsp = { signature = true},
+  lsp = { signature = true },
 }
 
 M.nvdash = { load_on_startup = true }

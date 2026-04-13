@@ -1,6 +1,10 @@
 require "nvchad.options"
 local opt = vim.opt
 
+-- Show tabs with file names
+-- vim.o.tabline = '%!v:lua.require("nvim-web-devicons").get_tab_label(%1)'
+opt.showtabline = 2  -- Always show tabline
+
 opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 1

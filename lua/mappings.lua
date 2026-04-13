@@ -26,13 +26,10 @@ map("i", "jk", "<ESC>")
 
 map("n", "<leader>x", "<cmd>:bd! <cr>",{ desc = "buffer close" })
 
-map("n", "<S-L>", function()
-  require("nvchad.tabufline").next()
-end, { desc = "buffer goto next" })
+map('n', '<S-H>', ':tabp<CR>', {desc = "go to previous tab"})
 
-map("n", "<S-H>", function()
-  require("nvchad.tabufline").prev()
-end, { desc = "buffer goto prev" })
+map('n', '<S-L>', ':tabn<CR>', {desc = "go to next tab"})
+
 map({ "n", "i", "v" }, "<C-s>", "<cmd> :update <cr>")
 
 map("n", "<leader>tT", function()
