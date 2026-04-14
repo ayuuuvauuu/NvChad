@@ -26,6 +26,7 @@ M.ui = {
     bufwidth = 21,
   },
   cmp = {
+      enabled = false,
     icons = false,
     lspkind_text = true,
     style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
@@ -34,6 +35,7 @@ M.ui = {
   },
 
   statusline = {
+    enabled = false,
     theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
@@ -42,6 +44,6 @@ M.ui = {
   lsp = { signature = true },
 }
 
-M.nvdash = { load_on_startup = true }
+M.nvdash = { load_on_startup = false }
 
 return M

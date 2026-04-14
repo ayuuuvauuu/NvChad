@@ -13,7 +13,7 @@ cmp.setup {
 -- add yours here
 local map = vim.keymap.set
 
-map("n", "K", function()
+map("n", "I", function()
   vim.diagnostic.open_float()
 end, {desc = " hover error show", silent = true })
 
@@ -27,7 +27,8 @@ map("i", "jk", "<ESC>")
 map("n", "<leader>x", "<cmd>:bd! <cr>",{ desc = "buffer close" })
 
 map('n', '<S-H>', ':tabp<CR>', {desc = "go to previous tab"})
-
+map('n', '<S-J>', ':bp<CR>', {desc = "go to previous buffer"})
+map('n', '<S-K>', ':bn<CR>', {desc = "go to next buffer"})
 map('n', '<S-L>', ':tabn<CR>', {desc = "go to next tab"})
 
 map({ "n", "i", "v" }, "<C-s>", "<cmd> :update <cr>")
