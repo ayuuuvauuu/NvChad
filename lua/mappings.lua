@@ -18,6 +18,7 @@ map("i", "jk", "<ESC>")
 
 map("n", "<leader>x", "<cmd>:bd! <cr>",{ desc = "buffer close" })
 
+map("n", "gf", "<C-w>gf", { desc = "open file under cursor to new tab" })
 map("n", "<leader>b", "<cmd>tabnew %<CR>", { desc = "open new tab with current file" })
 map("n", "<leader>j", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
 map('n', '<S-H>', ':tabp<CR>', {desc = "go to previous tab"})
