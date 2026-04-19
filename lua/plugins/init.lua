@@ -28,6 +28,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
+      vim.api.nvim_exec_autocmds("User", { pattern = "LspLoaded" })
     end,
   },
 

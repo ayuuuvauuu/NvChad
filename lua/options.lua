@@ -2,9 +2,9 @@ require "nvchad.options"
 
 vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#ffffff', bg = '#44475A' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = '#629284', bg = '#44475A' })
-vim.api.nvim_set_hl(0, 'TabLine', { fg = '#6272A4', bg = '#282A36' })
-vim.api.nvim_set_hl(0, 'TabLineSel', { fg = '#F8F8F2', bg = '#44475A' })
-vim.api.nvim_set_hl(0, 'TabLineFill', { fg = '#6272A4', bg = '#282A36' })
+vim.api.nvim_set_hl(0, 'TabLine', { fg = '#849c94', bg = '#303240' })
+vim.api.nvim_set_hl(0, 'TabLineSel', { fg = '#F8F8F2', bg = '#171924' })
+vim.api.nvim_set_hl(0, 'TabLineFill', { fg = '#849c94', bg = '#303240' })
 
 local opt = vim.opt
 
