@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "monochrome",
+  theme = "catppuccin",
   transparency = false,
   lsp_semantic_tokens = true, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
 
