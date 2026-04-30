@@ -1,5 +1,13 @@
 require "nvchad.autocmds"
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  -- pattern = {'lua','c','rs','cpp','go'},
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
+
 vim.api.nvim_create_autocmd("User", {
   pattern = "LspLoaded",
   callback = function()
