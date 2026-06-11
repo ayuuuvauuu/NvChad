@@ -34,6 +34,21 @@ map({ "n" }, "<leader>v", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
 
+local lsp_on = true
+map("n", "<leader>ll", function()
+  if lsp_on then
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      vim.lsp.stop_client(client)
+    end
+    lsp_on = false
+    vim.notify("LSP disabled")
+  else
+    vim.lsp.enable(vim.g.lsp_servers or { "html", "cssls", "pyright", "clangd", "rust_analyzer", "lua_ls" })
+    lsp_on = true
+    vim.notify("LSP enabled")
+  end
+end, { desc = "Toggle LSP" })
+
 map("n", "<leader>ca", "<cmd> :lua vim.lsp.buf.code_action() <cr>", { desc = "lsp code action" })
 
 map("n", "cpp", "<cmd> :terminal g++ -std=c++17 % -o %:r && ./%:r<cr>", { desc = "run cpp code" })
