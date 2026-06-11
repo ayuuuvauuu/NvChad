@@ -1,4 +1,12 @@
 return {
+  -- lsp stuff
+  {
+    "mason-org/mason.nvim",
+    opts = function()
+      return require "configs.mason"
+    end,
+  },
+
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
