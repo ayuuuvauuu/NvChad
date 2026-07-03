@@ -16,7 +16,7 @@ map("i", "jk", "<ESC>")
 
 map("n", "<leader>x", "<cmd>:bd! <cr>",{ desc = "buffer close" })
 
-map("n", "gf", "<C-w>gf", { desc = "open file under cursor to new tab" })
+map("n", "gf", "<C-w>gF", { desc = "open file under cursor to new tab" })
 map("n", "<leader>b", "<cmd>tabnew %<CR>", { desc = "open new tab with current file" })
 map("n", "<leader>j", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
 map('n', '<S-H>', ':tabp<CR>', {desc = "go to previous tab"})
@@ -34,17 +34,13 @@ map({ "n" }, "<leader>v", function()
   require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
 
-local lsp_on = true
 map("n", "<leader>ll", function()
-  if lsp_on then
-    for _, client in ipairs(vim.lsp.get_clients()) do
-      vim.lsp.stop_client(client)
-    end
-    lsp_on = false
-    vim.notify("LSP disabled")
+  local client = vim.lsp.get_clients({ bufnr = 0 })[1]
+  if client then
+    vim.cmd("lsp disable " .. client.name)
+    vim.notify(client.name .. " LSP disabled")
   else
-    vim.lsp.enable(vim.g.lsp_servers or { "html", "cssls", "pyright", "clangd", "rust_analyzer", "lua_ls" })
-    lsp_on = true
+    vim.cmd("lsp enable")
     vim.notify("LSP enabled")
   end
 end, { desc = "Toggle LSP" })
@@ -137,6 +133,6 @@ map("n", "<C-l>", function()
   require("harpoon.ui").nav_file(4)
 end, { desc = "nav har 4" })
 
-map("n", "<C-x>", function()
+map("n", "<C-z>", function()
   require("harpoon.term").gotoTerminal(1)
 end, { desc = "nav har term 1" })
