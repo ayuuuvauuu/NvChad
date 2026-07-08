@@ -15,9 +15,8 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    opts = function()
-      return require "configs.treesitter"
+    config = function()
+      require "configs.treesitter"
     end,
   },
 
@@ -84,7 +83,7 @@ return {
 
   {
     "folke/zen-mode.nvim",
-    lazy = false,
+    cmd = "ZenMode",
     opts = {
       {
         window = {
