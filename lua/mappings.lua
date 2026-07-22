@@ -52,7 +52,27 @@ map("n", "cp", "<cmd> :terminal ./%:r<cr>", { desc = "output of cpp code" })
 
 
 map("t", "gf", [[<C-\><C-n><cmd>edit <cfile><cr>]], { desc = "open file under cursor from terminal" })
-map("n", "<leader>tt", "<cmd>topleft split | terminal<cr>", { desc = "open top split terminal" })
+vim.keymap.set("n", "<leader>tt", function()
+  -- Open the top left split terminal
+  vim.cmd("topleft split | terminal")
+  
+  local bufnr = vim.api.nvim_get_current_buf()
+  
+  -- Find the first available name (term1, term2, etc.)
+  local counter = 1
+  local base_name = "term"
+  local target_name = base_name .. counter
+  
+  -- Loop until we find a name not used by any existing buffer
+  while vim.fn.bufexists(target_name) == 1 do
+    counter = counter + 1
+    target_name = base_name .. counter
+  end
+  
+  -- Rename the buffer and enter terminal mode
+  vim.api.nvim_buf_set_name(bufnr, target_name)
+  vim.cmd("startinsert")
+end, { desc = "Open top split terminal" })
 
 --map("n", "<leader>rn", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>n", "<cmd>set rnu!| set nu!<CR>", { desc = "toggle relative number" })
